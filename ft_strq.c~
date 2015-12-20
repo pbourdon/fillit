@@ -1,0 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strq.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ishafie <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/19 22:36:50 by ishafie           #+#    #+#             */
+/*   Updated: 2015/12/20 03:54:36 by ishafie          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_fillit.h"
+
+int		ft_sqrt(int nb)
+{
+	int		i;
+
+	i = 0;
+	while ((i * i) <= nb)
+		i++;
+	if ((i - 1) * (i - 1) == nb)
+		return (i - 5);
+	return (i - 4);
+}
+
+void	ft_display(char *map, int nbl, int nbo)
+{
+	int		i;
+	int		id;
+
+	i = 0;
+	id = 0;
+	while (map[i] != '\0' && id < ((nbl * nbl)))
+	{
+		if (ft_isalpha(map[i]))
+		{
+			id++;
+			ft_putchar(map[i]);
+		}
+		else if (map[i] == '1')
+		{
+			id++;
+			ft_putchar('.');
+		}
+		else if (i % nbo == 0 && i != 0)
+			ft_putchar('\n');
+		i++;
+	}
+	ft_putchar('\n');
+}
